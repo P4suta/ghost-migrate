@@ -1,0 +1,104 @@
+{
+  "db": [
+    {
+      "meta": {
+        "exported_on": 1700000000000,
+        "version": "5.80.0"
+      },
+      "data": {
+        "posts": [
+          {
+            "id": "post-1",
+            "title": "My Travel Post",
+            "slug": "my-travel-post",
+            "html": "<p>Check out this photo:</p><figure class=\"kg-card kg-image-card\"><img src=\"__GHOST_URL__/content/images/2024/09/photo.jpg\" alt=\"A photo\"><figcaption>Nice view</figcaption></figure><p>And a <a href=\"__GHOST_URL__/content/files/2024/doc.pdf\">document</a>.</p>",
+            "status": "published",
+            "type": "post",
+            "visibility": "public",
+            "featured": 0,
+            "feature_image": "__GHOST_URL__/content/images/2024/09/cover.jpg",
+            "custom_excerpt": null,
+            "canonical_url": null,
+            "published_at": "2024-09-01T10:00:00.000Z",
+            "created_at": "2024-09-01T09:00:00.000Z",
+            "updated_at": "2024-09-01T11:00:00.000Z"
+          },
+          {
+            "id": "post-2",
+            "title": "Second Post",
+            "slug": "second-post",
+            "html": "<p>Another post with a shared image:</p><img src=\"__GHOST_URL__/content/images/2024/09/photo.jpg\" alt=\"same photo\">",
+            "status": "published",
+            "type": "post",
+            "visibility": "public",
+            "featured": 0,
+            "feature_image": null,
+            "custom_excerpt": null,
+            "canonical_url": null,
+            "published_at": "2024-09-02T10:00:00.000Z",
+            "created_at": "2024-09-02T09:00:00.000Z",
+            "updated_at": "2024-09-02T11:00:00.000Z"
+          },
+          {
+            "id": "post-3",
+            "title": "Draft Post",
+            "slug": "draft-post",
+            "html": "<p>This is a draft.</p>",
+            "status": "draft",
+            "type": "post",
+            "visibility": "public",
+            "featured": 0,
+            "feature_image": null,
+            "custom_excerpt": null,
+            "canonical_url": null,
+            "published_at": null,
+            "created_at": "2024-09-03T09:00:00.000Z",
+            "updated_at": "2024-09-03T09:00:00.000Z"
+          }
+        ],
+        "posts_meta": [],
+        "tags": [
+          {
+            "id": "tag-1",
+            "name": "Travel",
+            "slug": "travel",
+            "description": null,
+            "visibility": "public"
+          }
+        ],
+        "users": [
+          {
+            "id": "user-1",
+            "name": "Author",
+            "slug": "author",
+            "email": "author@example.com"
+          }
+        ],
+        "posts_tags": [
+          {
+            "post_id": "post-1",
+            "tag_id": "tag-1",
+            "sort_order": 0
+          }
+        ],
+        "posts_authors": [
+          {
+            "post_id": "post-1",
+            "author_id": "user-1",
+            "sort_order": 0
+          },
+          {
+            "post_id": "post-2",
+            "author_id": "user-1",
+            "sort_order": 0
+          },
+          {
+            "post_id": "post-3",
+            "author_id": "user-1",
+            "sort_order": 0
+          }
+        ]
+      }
+    }
+  ]
+}
