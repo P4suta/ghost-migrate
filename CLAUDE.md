@@ -103,3 +103,48 @@ ghost-migrate [flags] <ghost-export.json>
 - **Media URLs**: Two forms — `__GHOST_URL__/content/images/...` and absolute `https://domain/content/images/...`; both map to `content/{images,media,files}/` paths in backups
 - **Shared media**: Same file referenced by multiple posts gets COPYed to each bundle; single-reference files can be MOVEd
 - **Orphaned media**: Files in backup not referenced by any post go to `_orphaned/` by default
+
+## Git Workflow
+
+### Branch Strategy
+
+- **Main branch**: `main` — always deployable
+- **Feature branches**: `feat/`, `fix/`, `refactor/`, `docs/`, `test/`, `chore/` prefixes, kebab-case (e.g., `feat/ghost-json-parser`, `fix/media-url-edge-case`)
+- Always PR to `main`, delete branch after merge
+
+### Commit Conventions
+
+[Conventional Commits](https://www.conventionalcommits.org/) with scopes matching architecture layers:
+
+```
+type(scope): description
+```
+
+- **Types**: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+- **Scopes**: `domain`, `port`, `adapter`, `usecase`, `cli`, `ghostjson`, `htmlconv`, `mediafs`, `mediazip`, `fsbundle`, `fsjournal`, `claude`
+- Language: English
+- One logical change per commit
+- Co-author trailer: `Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>`
+
+### PR Conventions
+
+- **Merge strategy**: Squash-and-merge only (merge commits and rebase merges disabled)
+- **PR title**: Conventional commit format (becomes the squash commit message)
+- **PR body**: Summary (bullet points), Architecture notes (if applicable), Test Plan (checklist)
+- Branches auto-deleted after merge
+
+## Development Environment
+
+### 1Password SSH Agent (WSL)
+
+SSH authentication and commit signing are handled by 1Password via WSL bridge:
+
+- **SSH**: `core.sshcommand = ssh.exe` — delegates to Windows OpenSSH, which connects to 1Password's SSH agent
+- **Signing**: `gpg.format = ssh` with `gpg.ssh.program = op-ssh-sign-wsl.exe` — 1Password signs commits with the SSH key
+- **Key**: Ed25519 key managed in 1Password, configured via `user.signingkey`
+
+#### Troubleshooting
+
+- **Auth/signing fails**: Ensure 1Password desktop app is running on the Windows host (the agent lives in the desktop app)
+- **Verify SSH**: `ssh -T git@github.com` (should say "Hi P4suta!")
+- **Verify signing**: `git log --show-signature` (should show "Good ssh signature")
