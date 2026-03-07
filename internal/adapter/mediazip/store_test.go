@@ -77,8 +77,8 @@ func TestStore_ListHasOpen(t *testing.T) {
 
 func TestStore_NestedPrefix(t *testing.T) {
 	zipPath := createTestZip(t, map[string]string{
-		"japan-travel_123/content/images/photo.jpg":                          "nested once",
-		"japan-travel_123/japan-travel_123/content/images/deep.jpg":          "nested twice",
+		"japan-travel_123/content/images/photo.jpg":                 "nested once",
+		"japan-travel_123/japan-travel_123/content/images/deep.jpg": "nested twice",
 	})
 
 	store, err := NewStore(zipPath)
@@ -97,8 +97,8 @@ func TestStore_NestedPrefix(t *testing.T) {
 
 func TestStore_PathTraversalRejected(t *testing.T) {
 	zipPath := createTestZip(t, map[string]string{
-		"../../../etc/passwd":           "malicious",
-		"content/images/safe.jpg":       "safe data",
+		"../../../etc/passwd":     "malicious",
+		"content/images/safe.jpg": "safe data",
 	})
 
 	store, err := NewStore(zipPath)
