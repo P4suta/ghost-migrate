@@ -306,4 +306,3 @@ func statsFromPlan(plan *domain.MigrationPlan) MigrateStats {
 		OrphanedMedia: plan.Stats.OrphanedMedia,
 	}
 }
-
